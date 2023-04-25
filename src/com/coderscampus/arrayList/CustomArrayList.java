@@ -12,17 +12,12 @@ public class CustomArrayList<T> implements CustomList<T> {
 	public boolean add(T item) {
 		if (counter == items.length) {
 			items = Arrays.copyOf(items, items.length * 2);
-//			items = newItems;
+
 		}
 
 		items[counter] = item;
 		counter++;
-//		if (item == null) {
-//			return false;
-//		}
-//		if (item != null) {
-//			counter++;
-//		}
+
 		return true;
 	}
 
