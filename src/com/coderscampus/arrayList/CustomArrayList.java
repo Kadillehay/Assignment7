@@ -10,18 +10,19 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 	@Override
 	public boolean add(T item) {
+		if (counter == items.length) {
+			items = Arrays.copyOf(items, items.length * 2);
+//			items = newItems;
+		}
 
 		items[counter] = item;
-		if (item == null) {
-			return false;
-		}
-		if (item != null) {
-			counter++;
-		}
-		if (counter == items.length && items != null) {
-			Object[] newItems = Arrays.copyOf(items, items.length * 2);
-			items = newItems;
-		}
+		counter++;
+//		if (item == null) {
+//			return false;
+//		}
+//		if (item != null) {
+//			counter++;
+//		}
 		return true;
 	}
 
@@ -60,8 +61,8 @@ public class CustomArrayList<T> implements CustomList<T> {
 		}
 
 		if (counter == items.length) {
-			Object[] newItems = Arrays.copyOf(items, items.length * 2);
-			items = newItems;
+			items = Arrays.copyOf(items, items.length * 2);
+			
 		}
 
 		// shift all elements to the right of the index by 1
